@@ -1,0 +1,35 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Suas variáveis de cor do tema claro */
+    --color-background: #f8f9fa;
+    --color-surface: #ffffff;
+    --color-text-primary: #212529;
+    --color-text-secondary: #6c757d;
+    --color-primary: #e63946;
+    --color-primary-contrast: #ffffff;
+    --color-border: #dee2e6;
+    --color-tag-bg: #e2e3e5;
+    --color-skeleton: #e2e3e5;
+  }
+
+  [data-theme='dark'] {
+    /* Suas variáveis de cor do tema escuro */
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
+    --color-text-primary: #e0e0e0;
+    --color-text-secondary: #a0a0a0;
+    --color-primary: #ff5252;
+    --color-border: #444444;
+    --color-tag-bg: #333333;
+    --color-skeleton: #333;
+  }
+
+  body {
+    @apply bg-background text-text-primary transition-colors duration-200;
+  }
+}
