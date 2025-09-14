@@ -1,3 +1,4 @@
+// src/hooks/useTheme.js
 import { useState, useEffect } from 'react';
 
 export function useTheme() {
@@ -6,7 +7,11 @@ export function useTheme() {
   });
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
+    const root = window.document.documentElement; // Pega o elemento <html>
+
+    root.classList.remove('light', 'dark');
+    root.classList.add(theme); // Adiciona a classe 'dark' ou 'light'
+
     localStorage.setItem('theme', theme);
   }, [theme]);
 

@@ -1,3 +1,4 @@
+// src/components/Cart/Cart.jsx
 import React from 'react';
 
 const Cart = ({ cartItems, onClose }) => {
@@ -13,13 +14,12 @@ const Cart = ({ cartItems, onClose }) => {
           <h2 className="text-xl font-semibold">Seu Carrinho</h2>
           <button className="text-3xl text-text-secondary" onClick={onClose}>&times;</button>
         </div>
-        
         <div className="flex-grow overflow-y-auto p-4">
           {cartItems.length === 0 ? (
             <p>Seu carrinho está vazio.</p>
           ) : (
             cartItems.map((item, index) => (
-              <div key={`${item.mal_id}-${index}`} className="flex gap-4 mb-4">
+              <div key={`${item.mal_id}-${index}`} className="mb-4 flex gap-4">
                 <img src={item.imageUrl} alt={item.title} className="h-20 w-20 rounded-md object-cover" />
                 <div className="flex flex-col">
                   <span className="font-semibold">{item.title}</span>
@@ -29,7 +29,6 @@ const Cart = ({ cartItems, onClose }) => {
             ))
           )}
         </div>
-        
         {cartItems.length > 0 && (
           <div className="border-t border-border p-4">
             <div className="mb-4 flex justify-between text-lg font-bold">

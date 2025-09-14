@@ -1,11 +1,9 @@
 /* src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   :root {
-    /* Suas variáveis de cor do tema claro */
+    /* Tema Claro */
     --color-background: #f8f9fa;
     --color-surface: #ffffff;
     --color-text-primary: #212529;
@@ -14,11 +12,11 @@
     --color-primary-contrast: #ffffff;
     --color-border: #dee2e6;
     --color-tag-bg: #e2e3e5;
-    --color-skeleton: #e2e3e5;
+    --color-skeleton: #e0e0e0;
   }
 
-  [data-theme='dark'] {
-    /* Suas variáveis de cor do tema escuro */
+  .dark {
+    /* Tema Escuro */
     --color-background: #121212;
     --color-surface: #1e1e1e;
     --color-text-primary: #e0e0e0;
@@ -30,6 +28,8 @@
   }
 
   body {
-    @apply bg-background text-text-primary transition-colors duration-200;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    transition: background-color 200ms, color 200ms;
   }
 }
