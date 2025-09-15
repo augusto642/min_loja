@@ -1,11 +1,11 @@
 .navbar {
-  position: fixed; /* Fixa a navbar no topo */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   background-color: var(--color-surface);
   box-shadow: var(--shadow-md);
-  z-index: 1000; /* Garante que fique acima de outros conteúdos */
+  z-index: 1000; 
   padding: 0 1.5rem;
 }
 
