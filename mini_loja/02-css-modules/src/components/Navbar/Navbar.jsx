@@ -6,7 +6,7 @@ const Navbar = ({ theme, toggleTheme, cartItemCount, onCartClick }) => {
   return (
     <header className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logo}>MangáStore</div>
+        <div className={styles.logo}>MangaStore</div>
         <nav className={styles.nav}>
           <button
             onClick={toggleTheme}

@@ -3,7 +3,7 @@
   --color-surface: #ffffff;
   --color-text-primary: #212529;
   --color-text-secondary: #6c757d;
-  --color-primary: #e63946; /* Vermelho vibrante para o tema de mangás */
+  --color-primary: #e63946;
   --color-primary-contrast: #ffffff;
   --color-border: #dee2e6;
   --color-tag-bg: #e2e3e5;
@@ -22,7 +22,7 @@
   --color-surface: #1e1e1e;
   --color-text-primary: #e0e0e0;
   --color-text-secondary: #a0a0a0;
-  --color-primary: #ff5252; /* Um vermelho um pouco mais claro para contraste */
+  --color-primary: #ff5252; 
   --color-border: #444444;
   --color-tag-bg: #333333;
   --color-skeleton: #333;
@@ -54,24 +54,24 @@ body {
   display: grid;
   gap: 1.5rem;
   padding: 1.5rem;
-  padding-top: 100px; /* Espaço para a navbar fixa */
+  padding-top: 100px; 
   max-width: 1280px;
   margin: 0 auto;
-  grid-template-columns: 1fr; /* <= 480px: 1 coluna */
+  grid-template-columns: 1fr; 
 }
 
 @media (min-width: 481px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 481-768px: 2 colunas */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 @media (min-width: 769px) {
   .product-grid {
-    grid-template-columns: repeat(3, 1fr); /* 769–1024px: 3 colunas */
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 @media (min-width: 1025px) {
   .product-grid {
-    grid-template-columns: repeat(4, 1fr); /* >= 1025px: 4 colunas */
+    grid-template-columns: repeat(4, 1fr); 
   }
 }

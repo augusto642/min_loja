@@ -1,9 +1,7 @@
+/* Overlay e painel */ 
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 2000;
   display: flex;
@@ -13,76 +11,90 @@
 .panel {
   width: 100%;
   max-width: 400px;
-  background-color: var(--color-surface);
+  background-color: #ffffff;
   height: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-@keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
+/* Cabeçalho */
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.header h2 {
-  margin: 0;
-  font-size: 1.25rem;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .closeBtn {
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: #212529;
 }
 
+/* Corpo */
 .body {
-  flex-grow: 1;
-  overflow-y: auto;
+  flex: 1;
   padding: 1rem;
+  overflow: auto;
 }
 
 .item {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 64px 1fr auto; /* imagem | detalhes | remover */
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #dee2e6;
+  align-items: center;
 }
 
 .itemImage {
-  width: 80px;
+  width: 64px;
   height: 80px;
   object-fit: cover;
-  border-radius: var(--border-radius);
+  border-radius: 8px;
 }
 
 .itemDetails {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 6px;
 }
 
-.itemTitle {
-  font-weight: 600;
+.itemTitle { font-weight: 600; }
+.itemPrice { font-weight: 700; }
+
+/* Botão remover (×): normal branco, hover borda vermelha, active fundo vermelho) */
+.removeBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #ffffff;         /* normal: branco */
+  color: #6c757d;              /* cinza texto */
+  border: 1px solid #dee2e6;   /* borda neutra */
+  cursor: pointer;
+  transition: background-color .2s, color .2s, border-color .2s, transform .2s;
 }
 
-.itemPrice {
-  color: var(--color-text-secondary);
-  margin-top: 0.25rem;
+.removeBtn:hover {
+  background: #ffffff;         /* hover: continua branco */
+  color: #e63946;              /* texto vermelho */
+  border-color: #e63946;       /* borda vermelha */
 }
 
+.removeBtn:active {
+  background: #e63946;         /* active: vermelho */
+  color: #ffffff;              /* texto branco */
+  border-color: #e63946;       /* borda vermelha */
+  transform: translateY(1px);
+}
+
+/* Rodapé */
 .footer {
   padding: 1rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #dee2e6;
 }
 
 .total {
@@ -98,14 +110,12 @@
   padding: 0.75rem 1rem;
   font-size: 1rem;
   font-weight: 600;
-  border-radius: var(--border-radius);
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  background-color: var(--color-primary);
-  color: var(--color-primary-contrast);
-  transition: opacity var(--transition-duration);
+  background-color: #e63946;
+  color: #ffffff;
+  transition: opacity .2s;
 }
 
-.checkoutBtn:hover {
-  opacity: 0.8;
-}
+.checkoutBtn:hover { opacity: .9; }

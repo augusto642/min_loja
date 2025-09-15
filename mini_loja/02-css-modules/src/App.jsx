@@ -14,33 +14,46 @@ function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
 
   const handleAddToCart = (productToAdd) => {
-    setCartItems([...cartItems, productToAdd]);
+    setCartItems((prev) => {
+      const newId = productToAdd.id ?? productToAdd.mal_id;
+      const exists = prev.some((i) => (i.id ?? i.mal_id) === newId);
+      if (exists) return prev;
+      return [...prev, productToAdd];
+    });
   };
 
-  const toggleCart = () => {
-    setIsCartVisible(!isCartVisible);
+  const handleRemoveItem = (id) => {
+    setCartItems((prev) => prev.filter((i) => (i.id ?? i.mal_id) !== id));
   };
+
+  const toggleCart = () => setIsCartVisible((v) => !v);
 
   useEffect(() => {
     const fetchMangas = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch('https://api.jikan.moe/v4/top/manga?limit=20');
         const data = await response.json();
-        setProducts(data.data);
+        setProducts(data.data || []);
       } catch (error) {
-        console.error("Erro ao buscar os mangás:", error);
+        console.error('Erro ao buscar os mangás:', error);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchMangas(); 
-  }, []); 
+    fetchMangas();
+  }, []);
 
   return (
     <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} cartItemCount={cartItems.length} onCartClick={toggleCart} />
-      
+      <Navbar
+        theme={theme}
+        toggleTheme={toggleTheme}
+        cartItemCount={cartItems.length}
+        onCartClick={toggleCart}
+      />
+
       <main className="product-grid">
         {isLoading
           ? Array.from({ length: 20 }).map((_, index) => <Skeleton key={index} />)
@@ -48,8 +61,14 @@ function App() {
               <ProductCard key={manga.mal_id} product={manga} onAddToCart={handleAddToCart} />
             ))}
       </main>
-      
-      {isCartVisible && <Cart cartItems={cartItems} onClose={toggleCart} />}
+
+      {isCartVisible && (
+        <Cart
+          cartItems={cartItems}
+          onClose={toggleCart}
+          onRemoveItem={handleRemoveItem}
+        />
+      )}
     </>
   );
 }
