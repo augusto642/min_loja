@@ -8,6 +8,7 @@
     --color-surface: #ffffff;
     --color-text-primary: #212529;
     --color-text-secondary: #6c757d;
+    /* COR ALTERADA AQUI */
     --color-primary: #e63946;
     --color-primary-contrast: #ffffff;
     --color-border: #dee2e6;
@@ -21,7 +22,9 @@
     --color-surface: #1e1e1e;
     --color-text-primary: #e0e0e0;
     --color-text-secondary: #a0a0a0;
-    --color-primary: #ff5252;
+    /* COR ALTERADA AQUI */
+    --color-primary: #ff5252; 
+    --color-primary-contrast: #ffffff;
     --color-border: #444444;
     --color-tag-bg: #333333;
     --color-skeleton: #333;

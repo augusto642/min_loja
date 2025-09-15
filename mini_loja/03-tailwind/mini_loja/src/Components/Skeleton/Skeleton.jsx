@@ -1,4 +1,3 @@
-// src/components/Skeleton/Skeleton.jsx
 import React from 'react';
 
 const Skeleton = () => {
