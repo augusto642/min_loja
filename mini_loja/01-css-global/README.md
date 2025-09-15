@@ -4,5 +4,5 @@ Implementação da tela usando CSS global (arquivos .css compartilhados). A UI i
 
 ### Como rodar
 ```
-npm i
+npm install
 npm run dev
